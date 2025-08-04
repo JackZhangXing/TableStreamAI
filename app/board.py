@@ -121,46 +121,127 @@ load_dotenv(override=True)
 # Return: list[Recipe]
 # """
 
+
+#
+# prompt = """
+# You are a seasoned script editor and translator.
+# Please generate the storyboard based on the Chinese content I input. The storyboard should include all the content of the novel and strictly follow the format I provide. The "text" field must be in English as we will use it to generate English video, audio, and subtitles. "screenKeywords_cn" is the Chinese description of the storyboard content in terms of shot language, and "screenKeywords_en" is the English description of the shot language.
+#
+# A good shot language may include the following categories:
+# Characters: Young man, elderly woman, hero, villain - Description of characters' age, appearance or character type.
+# Actions: Running, smiling, crying, looking in surprise - Clear actions or expressions of characters.
+# Scenes: Forest, city streets, beach, kitchen - Specify the location or background where the story takes place.
+# Emotions: Happy, sad, mysterious, romantic - Set the atmosphere or emotional tone of the scene.
+# Style: Sketch, watercolor, cartoon, realistic, anime - Choose the artistic style of the image.
+# Camera angle: Close-up, mid-shot, wide-angle, overhead - Specify the camera's perspective or composition.
+# Lighting and environment: Sunlight, rainy day, dusk, night scene, backlight - Describe lighting conditions or environmental atmosphere.
+#
+# Do not condense the storyboard text. Some character names can be inferred as male, female, young or old based on the names. Do not use character names in the prompt words.
+#
+# Incorrect example:
+# Characters: Young man, Actions: Drinking, meditating, Scene: Under the starry sky, Emotions: Loneliness, nostalgia, Camera angle: Mid-shot, Lighting and environment: Starlight, night
+#
+# Correct example:
+# Young man, drinking, meditating, under the starry sky, loneliness, nostalgia, mid-shot, starlight, night
+#
+# Important: The "text" field must be in English because we will use it to generate English video, audio, and subtitles.
+#
+# Use this JSON schema:
+# [
+#     {
+#         "id": "1",
+#         "text": "English text content here",
+#         "lensLanguage_cn": "中文镜头描述",
+#         "lensLanguage_en": "English lens description"
+#     },
+#     {
+#         "id":"2",
+#         "text":"English text content here",
+#         "lensLanguage_cn":"中文镜头描述",
+#         "lensLanguage_en":"English lens description"
+#     }
+# ]
+# Return: list
+# """
+
+
 prompt = """
-You are a seasoned script editor and translator.
-Please generate the storyboard based on the Chinese content I input. The storyboard should include all the content of the novel and strictly follow the format I provide. The "text" field must be in English as we will use it to generate English video, audio, and subtitles. "screenKeywords_cn" is the Chinese description of the storyboard content in terms of shot language, and "screenKeywords_en" is the English description of the shot language.
+你是一个资深的剧本编辑
+请根据我输入的内容生成分镜，分镜要包含所有小说内容，并且严格按照我输入的格式给我，其中 text为分镜文字内容，screenKeywords_cn 为分镜内容的镜头语言中文描述 screenKeywords_en为 镜头语言的英文描述，一个好的镜头语言可能包含这几类
+角色，动作，场景，情绪，风格，镜头角度，灯光与环境
+角色   年轻男子、老年女性、英雄、反派   描述角色的年龄、外观或角色类型。
+动作   跑步、微笑、哭泣、惊讶地看   明确角色的动作或表情。
+场景   森林、城市街道、海滩、厨房   指定故事发生的地点或背景。
+情绪   快乐、悲伤、神秘、浪漫   设定场景的氛围或情绪基调。
+风格   卡通、动漫   选择图像的艺术风格。
+镜头角度   特写、中景、广角、俯视   指定摄像机的视角或构图。
+灯光与环境   阳光、雨天、黄昏、夜景、背光  描述光线条件或环境氛围。
+不要对分镜文案进行提炼，一些角色人名，可以根据名字推测是男女还是青年少年，提示词中不要用人名
+错误例子
+角色：年轻男子，动作：喝酒、沉思，场景：星空下，情绪：孤独、怀念，镜头角度：中景，灯光与环境：星光、夜晚
+正确例子
+年轻男子，喝酒、沉思，星空下，孤独、怀念，中景，星光、夜晚
 
-A good shot language may include the following categories:
-Characters: Young man, elderly woman, hero, villain - Description of characters' age, appearance or character type.
-Actions: Running, smiling, crying, looking in surprise - Clear actions or expressions of characters.
-Scenes: Forest, city streets, beach, kitchen - Specify the location or background where the story takes place.
-Emotions: Happy, sad, mysterious, romantic - Set the atmosphere or emotional tone of the scene.
-Style: Sketch, watercolor, cartoon, realistic, anime - Choose the artistic style of the image.
-Camera angle: Close-up, mid-shot, wide-angle, overhead - Specify the camera's perspective or composition.
-Lighting and environment: Sunlight, rainy day, dusk, night scene, backlight - Describe lighting conditions or environmental atmosphere.
+重要：text字段必须是英文内容，因为我们要用英文生成视频、音频和字幕。
 
-Do not condense the storyboard text. Some character names can be inferred as male, female, young or old based on the names. Do not use character names in the prompt words.
-
-Incorrect example:
-Characters: Young man, Actions: Drinking, meditating, Scene: Under the starry sky, Emotions: Loneliness, nostalgia, Camera angle: Mid-shot, Lighting and environment: Starlight, night
-
-Correct example:
-Young man, drinking, meditating, under the starry sky, loneliness, nostalgia, mid-shot, starlight, night
-
-Important: The "text" field must be in English because we will use it to generate English video, audio, and subtitles.
-
+List a few popular cookie recipes in JSON format.
 Use this JSON schema:
-[
+Recipe =[
     {
         "id": "1",
-        "text": "English text content here",
-        "lensLanguage_cn": "中文镜头描述",
-        "lensLanguage_en": "English lens description"
+        "text": "xxxxxx",
+        "lensLanguage_cn": "",
+        "lensLanguage_en": ""
     },
     {
         "id":"2",
-        "text":"English text content here",
-        "lensLanguage_cn":"中文镜头描述",
-        "lensLanguage_en":"English lens description"
+        "text":"xxxxxxxx",
+        "lensLanguage_cn":"",
+        "lensLanguage_en":""
     }
 ]
-Return: list
+Return: list[Recipe]
 """
+
+
+prompt = """
+You are a senior script editor
+Please generate storyboards based on the content I input. The storyboards should include all the novel content and strictly follow the format I input. Text is the storybook text content, screenKeywords_cn is the Chinese description of the storyboard content, and screenKeywords_en is the English description of the storyboard language. A good storyboard language may include these types
+Character, action, scene, emotion, style, camera angle, lighting and environment
+Describe the age, appearance, or character type of the character as a young man, elderly woman, hero, or villain.
+Running, smiling, crying, and looking at the clear movements or expressions of the character in surprise.
+Scene forest, city streets, beaches, kitchens specify the location or background where the story takes place.
+Emotional happiness, sadness, mystery, and romance set the atmosphere or emotional tone of the scene.
+The artistic style of selecting images for cartoons and anime.
+Camera angle close-up, mid-range, wide-angle, overhead specified camera angle or composition.
+Lighting and Environment: Sunshine, Rainy Days, Dusk, Night Scene, Backlight Describe lighting conditions or environmental atmosphere.
+Do not refine the storyboard copy. Some characters' names can be used to infer whether they are male, female, or young. Do not use names in the prompts
+Wrong Example
+Character: Young man, actions: drinking and contemplation, scene: under the starry sky, emotions: loneliness and nostalgia, camera angle: mid-range, lighting and environment: starlight, night
+Correct example
+Young man, drinking and contemplating, under the starry sky, lonely and nostalgic, in the middle of the day, under the stars, at night
+
+Important: The text field must contain English content, as we need to generate videos, audio, and subtitles in English.
+
+List a few popular cookie recipes in JSON format.
+Use this JSON schema:
+Recipe =[
+    {
+        "id": "1",
+        "text": "xxxxxx",
+        "lensLanguage_cn": "",
+        "lensLanguage_en": ""
+    },
+    {
+        "id":"2",
+        "text":"xxxxxxxx",
+        "lensLanguage_cn":"",
+        "lensLanguage_en":""
+    }
+]
+Return: list[Recipe]
+"""
+
 
 # 分镜生成函数
 def generate_board_json(chapter_content: str, max_retries=3, retry_delay=2):

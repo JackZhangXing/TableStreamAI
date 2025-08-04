@@ -19,106 +19,106 @@ def safe_print(message):
         print(message)
 
 
-# prompt = """
-# StableDiffusion是一款利用深度学习的文生图模型，支持通过使用提示词来产生新的图像，描述要包含或省略的元素。
-# 我在这里引入StableDiffusion算法中的Prompt概念，又被称为提示符。
-# 下面的prompt是用来指导AI绘画模型创作图像的。它们包含了图像的各种细节，如人物的外观、背景、颜色和光线效果，以及图像的主题和风格。这些prompt的格式经常包含括号内的加权数字，用于指定某些细节的重要性或强调。例如，"(masterpiece:1.5)"表示作品质量是非常重要的，多个括号也有类似作用。此外，如果使用中括号，如"{blue hair:white hair:0.3}"，这代表将蓝发和白发加以融合，蓝发占比为0.3。
-# 以下是用prompt帮助AI模型生成图像的例子：masterpiece,(bestquality),highlydetailed,ultra-detailed,cold,solo,(1girl),(detailedeyes),(shinegoldeneyes),(longliverhair),expressionless,(long sleeves),(puffy sleeves),(white wings),shinehalo,(heavymetal:1.2),(metaljewelry),cross-lacedfootwear (chain),(Whitedoves:1.2)
-# 需要多增加一些漫画风格以及漫画的细节的关键词进来
-#
-# 仿照例子，给出一套详细描述以下内容的prompt。直接开始给出prompt不需要用自然语言描述不要出现人名不要使用中文：
-# """
-
 prompt = """
 StableDiffusion是一款利用深度学习的文生图模型，支持通过使用提示词来产生新的图像，描述要包含或省略的元素。
-一、核心结构框架（中英对照）：
-
-画面质量设定：
--(masterpiece, best quality, ultra-detailed, 8k resolution)
--(杰作，最高品质，超精细，8K分辨率)
-
-风格定位（关键部分）：
-a) 通用日系动漫：
-(anime style, official art, vibrant colors, cel-shading)
-
-b) 赛璐璐经典风：
-(90s anime, cel animation, hand-painted look, film grain)
-
-c) 现代二次元：
-(modern anime, Pixiv trend, semi-realistic eyes, soft lighting)
-
-角色描述系统：
-
-外貌：(slender body, asymmetrical hair, gradient eyes)
-
-服装：(school uniform with sailor collar, pleated skirt)
-
-动态：(dynamic pose, hair fluttering, flying petals)
-
-场景增强系统：
-
-背景：(cherry blossom park, bokeh lights, depth of field)
-
-特效：(lens flare, light particles, glowing outline)
-
-天气：(golden hour, sunbeam through leaves)
-
-二、风格化参数建议：
-
-新海诚风：
-(sky-blue palette, atmospheric perspective, hyper-detailed clouds, radiant lighting)
-
-吉卜力风：
-(watercolor texture, pastoral landscape, European architecture, whimsical creatures)
-
-赛博朋克：
-(neon lights, holographic UI, rain reflections, cybernetic implants)
-
-三、进阶控制参数（Negative prompt示例）：
-lowres, bad anatomy, extra digits, blurry, ((duplicate)), (poorly drawn hands), mutation
-
-四、完整示例模板：
-"(((masterpiece))), ((best quality)), anime key visual,
-character design sheet style,
-sakura pink hair with blue streaks,
-heterochromatic eyes (amber/emerald),
-futuristic kimono with led patterns,
-standing on floating shrine stairs,
-background of neon Tokyo skyline at dusk,
-volumetric light rays,
-Studio Trigger color palette,
-animated GIF style frame edges"
-
-五、风格切换关键词库：
-
-萌系：chibi proportion, sparkle eyes, pastel colors
-
-热血系：speed lines, dramatic perspective, impact frames
-
-黑暗系：gothic lolita, blood moon, ominous glow
-
-六、专业建议：
-
-使用权重控制：如 (sunset:1.3) 或 [clouds:0.8]
-
-添加艺术媒介暗示：concept art, illustration board, matte painting
-
-引用知名工作室风格：Ufotable shading, Kyoto Animation lighting
-
-需要生成特定子风格时，可以提供以下信息：
-
-期望的时代特征（80s/2000s等）
-
-具体参考作品/画师
-
-特殊材质需求（水彩/厚涂等）
-
-画面情感基调（忧郁/欢快等）
-
-必须为 2D 平面动画风格
+我在这里引入StableDiffusion算法中的Prompt概念，又被称为提示符。
+下面的prompt是用来指导AI绘画模型创作图像的。它们包含了图像的各种细节，如人物的外观、背景、颜色和光线效果，以及图像的主题和风格。这些prompt的格式经常包含括号内的加权数字，用于指定某些细节的重要性或强调。例如，"(masterpiece:1.5)"表示作品质量是非常重要的，多个括号也有类似作用。此外，如果使用中括号，如"{blue hair:white hair:0.3}"，这代表将蓝发和白发加以融合，蓝发占比为0.3。
+以下是用prompt帮助AI模型生成图像的例子：masterpiece,(bestquality),highlydetailed,ultra-detailed,cold,solo,(1girl),(detailedeyes),(shinegoldeneyes),(longliverhair),expressionless,(long sleeves),(puffy sleeves),(white wings),shinehalo,(heavymetal:1.2),(metaljewelry),cross-lacedfootwear (chain),(Whitedoves:1.2)
+需要多增加一些漫画风格以及漫画的细节的关键词进来
 
 仿照例子，给出一套详细描述以下内容的prompt。直接开始给出prompt不需要用自然语言描述不要出现人名不要使用中文：
 """
+
+# prompt = """
+# StableDiffusion是一款利用深度学习的文生图模型，支持通过使用提示词来产生新的图像，描述要包含或省略的元素。
+# 一、核心结构框架（中英对照）：
+#
+# 画面质量设定：
+# -(masterpiece, best quality, ultra-detailed, 8k resolution)
+# -(杰作，最高品质，超精细，8K分辨率)
+#
+# 风格定位（关键部分）：
+# a) 通用日系动漫：
+# (anime style, official art, vibrant colors, cel-shading)
+#
+# b) 赛璐璐经典风：
+# (90s anime, cel animation, hand-painted look, film grain)
+#
+# c) 现代二次元：
+# (modern anime, Pixiv trend, semi-realistic eyes, soft lighting)
+#
+# 角色描述系统：
+#
+# 外貌：(slender body, asymmetrical hair, gradient eyes)
+#
+# 服装：(school uniform with sailor collar, pleated skirt)
+#
+# 动态：(dynamic pose, hair fluttering, flying petals)
+#
+# 场景增强系统：
+#
+# 背景：(cherry blossom park, bokeh lights, depth of field)
+#
+# 特效：(lens flare, light particles, glowing outline)
+#
+# 天气：(golden hour, sunbeam through leaves)
+#
+# 二、风格化参数建议：
+#
+# 新海诚风：
+# (sky-blue palette, atmospheric perspective, hyper-detailed clouds, radiant lighting)
+#
+# 吉卜力风：
+# (watercolor texture, pastoral landscape, European architecture, whimsical creatures)
+#
+# 赛博朋克：
+# (neon lights, holographic UI, rain reflections, cybernetic implants)
+#
+# 三、进阶控制参数（Negative prompt示例）：
+# lowres, bad anatomy, extra digits, blurry, ((duplicate)), (poorly drawn hands), mutation
+#
+# 四、完整示例模板：
+# "(((masterpiece))), ((best quality)), anime key visual,
+# character design sheet style,
+# sakura pink hair with blue streaks,
+# heterochromatic eyes (amber/emerald),
+# futuristic kimono with led patterns,
+# standing on floating shrine stairs,
+# background of neon Tokyo skyline at dusk,
+# volumetric light rays,
+# Studio Trigger color palette,
+# animated GIF style frame edges"
+#
+# 五、风格切换关键词库：
+#
+# 萌系：chibi proportion, sparkle eyes, pastel colors
+#
+# 热血系：speed lines, dramatic perspective, impact frames
+#
+# 黑暗系：gothic lolita, blood moon, ominous glow
+#
+# 六、专业建议：
+#
+# 使用权重控制：如 (sunset:1.3) 或 [clouds:0.8]
+#
+# 添加艺术媒介暗示：concept art, illustration board, matte painting
+#
+# 引用知名工作室风格：Ufotable shading, Kyoto Animation lighting
+#
+# 需要生成特定子风格时，可以提供以下信息：
+#
+# 期望的时代特征（80s/2000s等）
+#
+# 具体参考作品/画师
+#
+# 特殊材质需求（水彩/厚涂等）
+#
+# 画面情感基调（忧郁/欢快等）
+#
+# 必须为 2D 平面动画风格
+#
+# 仿照例子，给出一套详细描述以下内容的prompt。直接开始给出prompt不需要用自然语言描述不要出现人名不要使用中文：
+# """
 
 # prompt = """
 # StableDiffusion is a text-to-image model that utilizes deep learning and supports generating new images by using prompt words to describe the elements to be included or omitted.
